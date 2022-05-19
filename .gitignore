@@ -3,3 +3,6 @@
 
 # ignore git lfs tracking files
 #.gitattributes
+
+#ignore jupyterlab checkpoints
+.ipynb_checkpoints
