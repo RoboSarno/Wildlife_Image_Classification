@@ -22,19 +22,19 @@ st.set_page_config(page_title="Wild Image Classifier App",
 def columns():
     col1, col2, col3, col4 = st.columns(4)
     with col1:
-        image = Image.open('../images/loss_optimization.png')
+        image = Image.open('../images/Loss.png')
         st.image(image)
         
     with col2:
-        image = Image.open('../images/categorical_accuracy_performance.png')
+        image = Image.open('../images/Accuracy.png')
         st.image(image)
         
     with col3:
-        image = Image.open('../images/recall_performance.png')
+        image = Image.open('../images/Recall.png')
         st.image(image)
         
     with col4:
-        image = Image.open('../images/precision_performance.png')
+        image = Image.open('../images/Precision.png')
         st.image(image)
         
 def reformat_img(image_file):
@@ -56,56 +56,52 @@ def test_model(loaded_model, img):
     class_labels = ['antelope_duiker','bird','blank','civet_genet', 'hog',
             'leopard','monkey_prosimian','rodent']
     prediction_probs = loaded_model.predict(img)
-    print(prediction_probs)
     predicted_label = class_labels[np.argmax(prediction_probs)]
-    return predicted_label
+    return predicted_label, prediction_probs
         
-def sidebar():
-    model = load_model()
-    with st.sidebar:
-        st.subheader('Test our Model:')
-        st.write('Select An Image')
-        image_file = st.file_uploader("Upload Images", type=["jpg","jpeg"])
 
-        if st.button('Run Model'):
-            print('fdsafdsfdasfssa')
-            with st.spinner('Wait for it...'):
-                if image_file is not None:
 
-                    image_reform = reformat_img(image_file)
-                    prediction = test_model(model, image_reform)
-                    #print(prediction)
-                    
-                    # print(prediction)
-                    time.sleep(5)     
-        #         st.success('Done!')
-            return prediction
-
-    # return None
-# @st.cache
+@st.cache(allow_output_mutation=True)
 def load_model():
-    return tf.keras.models.load_model('../model_data_h5/model_es.h5')
+    return tf.keras.models.load_model('../model_data_h5/final_model')
 
 
     
 
 def description():
-    st.write('Hello welcome to our application: ')
+    st.write('''
+                Hello, welcome to our application: 
+             
+                Below you can see Our Models Preformance for train and validation set for Loss, Accuracy, Recall, and Precision.
+                Go ahead and Test Our Models Preformance on the Sidebar.
+             ''')
 
 def main():
-    prediction = sidebar()
+    prediction = None
+    animal_perc = None
+    model = load_model()
+    with st.sidebar:
+        st.subheader('Test our Model:')
+        image_file = st.file_uploader("Upload Images", type=["jpg","jpeg"])
+
+        if st.button('Run Model'):
+            with st.spinner('Wait for it...'):
+                if image_file is not None:
+
+                    image_reform = reformat_img(image_file)
+                    prediction, animal_perc = test_model(model, image_reform)
+                    
+                    time.sleep(5)     
+                    
     st.title('Wild Image Classifier')
     st.write('''---''')
     description()
     st.write('''---''')
     columns()
-    st.subheader('The models prediction is...')
-    if prediction is not None:
-        #print(prediction)
-        st.write(prediction)
-        # st.dataframe(prediction, columns=['antelope_duiker', 'bird', 'blank', 'civet_genet', 'hog', 'leopard', 'monkey_prosimian', 'rodent'])
+    if prediction is not None and animal_perc is not None:
+        
+        st.dataframe(pd.DataFrame(animal_perc.round(2), columns=['antelope_duiker', 'bird', 'blank', 'civet_genet', 'hog', 'leopard', 'monkey_prosimian', 'rodent']))
+        st.write(f'The models prediction is...{prediction}')
     
-    
-
 if __name__ == '__main__':
     main()
