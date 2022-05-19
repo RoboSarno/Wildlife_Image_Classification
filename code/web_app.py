@@ -20,17 +20,21 @@ st.set_page_config(page_title="Wild Image Classifier App",
  )
 
 def columns():
-    col1, col2, col3 = st.columns(3)
+    col1, col2, col3, col4 = st.columns(4)
     with col1:
-        image = Image.open('./test.png')
+        image = Image.open('../images/loss_optimization.png')
         st.image(image)
         
     with col2:
-        image = Image.open('./test.png')
+        image = Image.open('../images/categorical_accuracy_performance.png')
         st.image(image)
         
     with col3:
-        image = Image.open('./test.png')
+        image = Image.open('../images/recall_performance.png')
+        st.image(image)
+        
+    with col4:
+        image = Image.open('../images/precision_performance.png')
         st.image(image)
         
 def reformat_img(image_file):
@@ -94,7 +98,7 @@ def main():
     st.write('''---''')
     description()
     st.write('''---''')
-    #columns()
+    columns()
     st.subheader('The models prediction is...')
     if prediction is not None:
         #print(prediction)
