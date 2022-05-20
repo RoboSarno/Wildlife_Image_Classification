@@ -63,7 +63,7 @@ def test_model(loaded_model, img):
 
 @st.cache(allow_output_mutation=True)
 def load_model():
-    return tf.keras.models.load_model('../model_data_h5/final_model')
+    return tf.keras.models.load_model('./model_data_h5/final_model')
 
 
     
