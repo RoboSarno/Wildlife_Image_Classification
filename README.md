@@ -45,8 +45,9 @@ ______
 
 |Index|Title|Description|
 |---|---|---|
-|1|[Early Data Exploration]() | This notebook captures all the EDA that explores patterns in the animal images.|
-|2|[Modeling]() | This notebook captures all the image preprocessing and neural network model development.|
+|1|[Early Data Exploration](https://github.com/Femli/Wildlife_Image_Classification/blob/main/code/EDA.ipynb) | This notebook captures all the EDA that explores patterns in the animal images.|
+|2|[Modeling](https://github.com/Femli/Wildlife_Image_Classification/blob/main/code/EfficientNet_Model_with_EarlyStop_ImageAugmentation.ipynb) | This notebook captures all the image preprocessing and neural network model development.|
+|3|[Improvements](https://github.com/Femli/Wildlife_Image_Classification/blob/main/code/Model_Improvements.ipynb) | This notebook contains further improvements on the classification model.|
 
 #### EDA Process
 
@@ -104,7 +105,7 @@ Accuracy: 0.62, Validation Accuracy: 0.46, Recall: 0.28, Validation Recall: 0.28
 Accuracy: 0.62, Validation Accuracy: 0.46, Recall: 0.28, Validation Recall: 0.28, Precision: 0.86, Validation Precision: 0.59.
 
 Your can check out and test our model here:
-- https://
+- [Streamlit App](https://share.streamlit.io/femli/wildlife_image_classification/main/code/web_app.py)
 
 -----------
 ### Recommendations:
