@@ -3,7 +3,6 @@ from keras.models import model_from_json
 import numpy as np
 import pandas as pd
 import streamlit as st
-import matplotlib.pyplot as plt
 import time
 import os
 import tensorflow as tf
@@ -92,8 +91,7 @@ def main():
                     image_reform = reformat_img(image_file)
                     prediction, animal_perc = test_model(model, image_reform)
                     
-                    time.sleep(5)
-                    plt.imshow(image_reform)     
+                    time.sleep(5)    
                     
     st.title('Wild Image Classifier')
     st.write('''---''')
