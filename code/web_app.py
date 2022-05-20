@@ -9,9 +9,9 @@ import tensorflow as tf
 from tensorflow import keras
 from tensorflow.keras.preprocessing.image import img_to_array, load_img
 
-subdir = '../model_data'
+subdir = './model_data'
 filename = 'saved_model.pb'
-checkpoint_dir = os.path.dirname('../model_data_h5/model_es.h5')
+checkpoint_dir = os.path.dirname('./model_data_h5/model_es.h5')
 
 
 
@@ -22,19 +22,19 @@ st.set_page_config(page_title="Wild Image Classifier App",
 def columns():
     col1, col2, col3, col4 = st.columns(4)
     with col1:
-        image = Image.open('../images/Loss.png')
+        image = Image.open('./images/Loss.png')
         st.image(image)
         
     with col2:
-        image = Image.open('../images/Accuracy.png')
+        image = Image.open('./images/Accuracy.png')
         st.image(image)
         
     with col3:
-        image = Image.open('../images/Recall.png')
+        image = Image.open('./images/Recall.png')
         st.image(image)
         
     with col4:
-        image = Image.open('../images/Precision.png')
+        image = Image.open('./images/Precision.png')
         st.image(image)
         
 def reformat_img(image_file):
