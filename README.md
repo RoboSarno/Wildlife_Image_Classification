@@ -45,9 +45,9 @@ ______
 
 |Index|Title|Description|
 |---|---|---|
-|1|[Early Data Exploration](https://github.com/Femli/Wildlife_Image_Classification/blob/main/code/EDA.ipynb) | This notebook captures all the EDA that explores patterns in the animal images.|
-|2|[Modeling](https://github.com/Femli/Wildlife_Image_Classification/blob/main/code/EfficientNet_Model_with_EarlyStop_ImageAugmentation.ipynb) | This notebook captures all the image preprocessing and neural network model development.|
-|3|[Improvements](https://github.com/Femli/Wildlife_Image_Classification/blob/main/code/Model_Improvements.ipynb) | This notebook contains further improvements on the classification model.|
+|1|[Early Data Exploration](https://github.com/Femli/Wildlife_Image_Classification/blob/main/notebooks/EDA.ipynb) | This notebook captures all the EDA that explores patterns in the animal images.|
+|2|[Modeling](https://github.com/Femli/Wildlife_Image_Classification/blob/main/notebooks/EfficientNet_Model_with_EarlyStop_ImageAugmentation.ipynb) | This notebook captures all the image preprocessing and neural network model development.|
+|3|[Improvements](https://github.com/Femli/Wildlife_Image_Classification/blob/main/notebooks/Model_Improvements.ipynb) | This notebook contains further improvements on the classification model.|
 
 #### EDA Process
 
